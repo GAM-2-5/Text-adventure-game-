@@ -5,4 +5,5 @@ Tema se odvija u snovima i drugo su spoileri
 Mozda cu dodati grafiku ovisi koliko vremena budem imala.
 
 Ok odustala sam od te ideje i sada radim memory, do sada sam importala pygames i pillow te eksperimentirala s dodavanjem slika
+Dodala sam slike i sta ih pokriva i sada istrazujemkako bi bliknula na nesto i izazvala reakciju
 
