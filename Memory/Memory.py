@@ -1,13 +1,13 @@
-import engine #umetanje engine, napravio ga je Leonardo
+import Engine #umetanje Engine, napravio ga je Leonardo
 import pygame #umetanje pygamea
-pygame.init() 
+pygame.init()
 white=(255, 255, 255) #odredivanje boje za pozadinu
 #odredivanje velicine ekrana
 X = 1200 
 Y = 600
-dis = pygame.display.set_mode((X, Y ))
+dis=pygame.display.set_mode((X, Y ))
+dis.fill(white)
 #umetanje slika
-pygame.display.set_caption('Image')
 red=pygame.image.load(r'C:\Users\User\Downloads\Programiranje\Memory\red.jpg')
 image0 = pygame.image.load(r'C:\Users\User\Downloads\Programiranje\Memory\flower.jpg') 
 image1 = pygame.image.load(r'C:\Users\User\Downloads\Programiranje\Memory\sun.jpg')
@@ -15,7 +15,6 @@ image2 = pygame.image.load(r'C:\Users\User\Downloads\Programiranje\Memory\flower
 image3 = pygame.image.load(r'C:\Users\User\Downloads\Programiranje\Memory\flower3.jpg')
 #random mjesanje slika
 l=[image0, image1, image2, image3, image0, image1, image2, image3]
-display_surface.fill(white)
 import random
 n=random.choice(l)
 l.remove(n)
@@ -33,32 +32,38 @@ f=random.choice(l)
 l.remove(f)
 g=random.choice(l)
 l.remove(g)
-#postavljanje slika na pozicije
-display_surface.blit(n, (10, 10))
-display_surface.blit(a, (10, 300))
-display_surface.blit(b, (300, 10))
-display_surface.blit(c, (600, 10))
-display_surface.blit(d, (300, 300))
-display_surface.blit(e, (600, 300))
-display_surface.blit(f, (900, 10))
-display_surface.blit(g, (900, 300))
+def fun():
+    print('nom')
+
 #postavljanje drge strane 'kartice' preko slika tako da ih igrac ne vidi
 
-engine.buttonDrawImage(dis, 10, 10, red)
-engine.buttonDrawImage(dis, 10, 300, red)
-engine.buttonDrawImage(dis, 300, 10, red)
-engine.buttonDrawImage(dis, 600, 10, red)
-engine.buttonDrawImage(dis, 300, 300, red)
-engine.buttonDrawImage(dis, 600, 300, red)
-engine.buttonDrawImage(dis, 900, 10, red)
-engine.buttonDrawImage(dis, 900, 300, red)
-
-#izlazak iz programa
-for event in pygame.event.get() : 
-    if event.type == pygame.QUIT :
-        pygame.quit()
-        quit()
-    pygame.display.update()
+#programa
+while True:
+    for event in pygame.event.get() :
+            dis.fill(white) #bijela pozadina
+            #postavljanje slika na pozicije
+            dis.blit(n, (10, 10))
+            dis.blit(a, (10, 300))
+            dis.blit(b, (300, 10))
+            dis.blit(c, (600, 10))
+            dis.blit(d, (300, 300))
+            dis.blit(e, (600, 300))
+            dis.blit(f, (900, 10))
+            dis.blit(g, (900, 300))
+            #postavljanje drge strane 'kartice' preko slika tako da ih igrac ne vidi
+            Engine.buttonDrawImage(dis, 10, 10, red)
+            Engine.buttonDrawImage(dis, 10, 300, red)
+            Engine.buttonDrawImage(dis, 300, 10, red)
+            Engine.buttonDrawImage(dis, 600, 10, red)
+            Engine.buttonDrawImage(dis, 300, 300, red)
+            Engine.buttonDrawImage(dis, 600, 300, red)
+            Engine.buttonDrawImage(dis, 900, 10, red)
+            Engine.buttonDrawImage(dis, 900, 300, red)
+            Engine.button(event,10,10,250,250,fun,button=1)
+            if event.type==pygame.QUIT:
+                pygame.quit()
+                quit()
+            pygame.display.update()
 
 
 
